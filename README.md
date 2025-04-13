@@ -249,8 +249,10 @@ SELECT EXTRACT(HOUR FROM order_date)FROM fashion.fashion;
 ```
 D. Inventory Insights
 
+The double pipe `||` is used to concatenate or consolidate different fields and data types into a single field. Here we used a combination of the double pipe and a string operator `-` usually enclosed in single quotation marks. The concatenate function `|| '-' ||` here is used to combine the fields clothing_type and category as a single field.
+
 1. Identify low stock items.
-The double pipe `||` is used to concatenate or consolidate different fields and data types into a single field. Here we used a combination of the double pipe and a string operator `-` usually enclosed in single quotation marks. The concatenate function `|| '-' ||` here is used to combine the fields clothing_type and category as item.
+
 ```sql
 SELECT 
     clothing_type || ' - ' || category AS "Item",
