@@ -11,10 +11,6 @@ CREATE TABLE fashion (
 	customer_email VARCHAR(50)
 );
 
-
-SET datestyle = 'ISO, MDY';
-
-
 INSERT INTO fashion (clothing_type, category, price, discount, shop_outlet, delivery_date, order_date, revenue, customer_name, customer_email) VALUES ('men', 'accessories', 113.84, 6.15, 'Photobug', '6/20/2022', '8/6/2023', 1102.01, 'Alfy Piborn', 'apiborn0@squarespace.com');
 INSERT INTO fashion (clothing_type, category, price, discount, shop_outlet, delivery_date, order_date, revenue, customer_name, customer_email) VALUES ('men', 'accessories', 60.62, 49.47, 'Jetwire', '2/6/2024', '1/1/2022', 5521.65, 'Demetra Stutely', 'dstutely1@wired.com');
 INSERT INTO fashion (clothing_type, category, price, discount, shop_outlet, delivery_date, order_date, revenue, customer_name, customer_email) VALUES ('children', 'shirts', 119.19, 41.14, 'Edgewire', '6/3/2022', '11/14/2022', 7252.86, 'Giselle Ruegg', 'gruegg2@weebly.com');
@@ -208,6 +204,7 @@ FROM fashion
 GROUP BY day_type;
 
 --- 2.Find peak shopping hours (if timestamp is available).
+--- SELECT EXTRACT(HOUR FROM order_date)FROM fashion.fashion;
 
 -- timestamp unavailable
 
@@ -225,6 +222,7 @@ LIMIT 5;
 
 
 --- 2.Find items that are frequently restocked.
+
 
 SELECT 
     clothing_type || ' - ' || category AS items,
