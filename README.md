@@ -156,6 +156,7 @@ SELECT * FROM fashion.fashion;
 A. Sales Analysis
 
 1. Identify the top 5 selling products.
+
 To identify top products we add up the total revenue from the sales.We then group by the category and limit our results by 5 to achieve the expected result of the top 5 products.
 ```sql
 SELECT category, SUM(revenue) AS "Total Revenue"
@@ -166,7 +167,8 @@ LIMIT 5;
 
 ```
 2. Determine the monthly trend of total sales.
-To determine the monthly trend we first have to extract the month and year for easier categorization, we then sum the revenue and count all rows as the total orders.
+
+To determine the monthly trend we first have to extract the month and year for easier categorization, we then sum the revenue and count all rows as the total orders.  
 `TO_CHAR` keyword extracts the year-month-date as an argument value while the `EXTRACT` keyword returns a float value.
 ```sql
 SELECT 
@@ -178,6 +180,7 @@ GROUP BY "Year_Month"
 ORDER BY "Year_Month";
 ```
 3. Analyze sales distribution by day of the week.
+
 Extract day of the week from order_date and then we perform aggregate functions on our key metrics to find the total sales.
 ```sql
 SELECT
@@ -191,6 +194,7 @@ ORDER BY "Total Revenue"  DESC;
 B. Customer Insights
 
 1. List the top 10 customers by revenue.
+
 Identify the customers who generated the most revenue
 ```sql
 SELECT customer_name, revenue
@@ -199,6 +203,7 @@ ORDER BY revenue DESC
 LIMIT 10;
 ```
 2. Compare the number of repeat vs new customers.
+
 To identify repeat and new customers, we first have to create a temporary result set or a CTE using the `WITH` function,we then use the `CASE` function to add a categorization of the data.
 ```sql
 WITH customer_frequency AS (
@@ -219,6 +224,7 @@ FROM customer_frequency
 GROUP BY customer_type;
 ```
 3. Identify locations with most active buyers (if applicable).
+
 To identify the most active shop outlet we get all the total orders from the dataset and then order by the number of orders madeto identify the most active outlet.
 ```sql
 SELECT shop_outlet, COUNT(*) "Total Orders"
@@ -230,6 +236,7 @@ limit 5;
 C. Time-Based Analysis
 
 1. Compare sales between weekdays and weekends.
+
 The `CASE` function is once again used to extract the day of the week.`NOT IN` function is a negation of the `IN` function both of which are used to specify a list of matches,here the functions are used to categorize the days of the week based on index, i.e. index 0 represents Sunday, while index 6 represents Saturday hence a weekend otherwise indexes 1-5 reprsent weekdays.
 ```sql
 SELECT 
@@ -243,6 +250,7 @@ FROM fashion
 GROUP BY day_type;
 ```
 2. Find peak shopping hours (if timestamp is available).
+
 To identify the hours we had to extract the `HOUR` from the timestamp. A timestamp was not provided and we therefore could not extract it. However, if a timestamp had been provided we could use the SQL code below(PostgresSQL) to extract the hour 
 ```sql
 SELECT EXTRACT(HOUR FROM order_date)FROM fashion.fashion;
