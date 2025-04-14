@@ -2,7 +2,7 @@
 
 
 ## *Project Overview.*  
-- *`Team Members*`
+- *`Team Members`*
 1. Kepher Ashitakaya
 2. Gedion Kibet Sang
 
