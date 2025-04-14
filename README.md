@@ -1,7 +1,10 @@
 # **FASHION DATA EXPLORATORY DATA ANALYSIS PROJECT**
 
 
-## *Project Overview.*
+## *Project Overview.*  
+- *`Team Members*`
+1. Kepher Ashitakaya
+2. Gedion Kibet Sang
 
 - *`Problem Statement and Objectives`*
 
